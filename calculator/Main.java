@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Main {
@@ -17,13 +18,15 @@ public class Main {
         frame.setIconImage(icon);
 
         JPanel panel= new JPanel();
-        String[] buttons= {"0","1","2","3","4","5","6","7","8","9"};
+        String[] numbers= {"0","1","2","3","4","5","6","7","8","9"};
         String[] operators ={"+","-","*","/"};
 
+        JLabel label= new JLabel();
+        panel.add(label);
         // add buttons and events
-        for (String buttonLabel : buttons) {
-            JButton button = new JButton(buttonLabel);
-            button.addActionListener(new ActionListener() {
+        for (String buttonLabel : numbers) {
+            JButton buttonNumbers = new JButton(buttonLabel);
+            buttonNumbers.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // show the mensage if you press the button
@@ -31,7 +34,17 @@ public class Main {
                     
                 }
             });
-            panel.add(button);
+            panel.add(buttonNumbers);
+        }
+        for (String buttonLabel: operators){
+            JButton buttonOperators = new JButton(buttonLabel);
+            buttonOperators.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e){
+                
+               } 
+            });
+            panel.add(buttonOperators);
         }
 
         
